@@ -1,0 +1,11 @@
+pluginManagement { 
+  repositories {
+    maven {
+      url = uri("../consuming/maven-repo/")
+    }      
+    gradlePluginPortal()
+  } // end repositories    
+}
+
+rootProject.name = "jarexec.plugin"
+

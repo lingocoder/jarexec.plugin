@@ -1,0 +1,43 @@
+sourceSets{
+
+    integrationTest{
+        groovy{ srcDir file('src/test-integration/groovy') }
+        java{ srcDir file('src/test-integration/java') }
+
+        resources{ srcDir file('src/test-integration/resources') }
+        compileClasspath += sourceSets.main.output + configurations.testRuntimeClasspath
+        runtimeClasspath += output + compileClasspath
+    }
+    
+    functionalTest{
+        groovy{ srcDir file('src/test-functional/groovy') }
+        java{ srcDir file('src/test-functional/java') }
+
+        resources{ srcDir file('src/test-functional/resources')
+        }
+        compileClasspath += sourceSets.main.output + configurations.testRuntimeClasspath
+        runtimeClasspath += output + compileClasspath
+    }
+
+}
+
+task integrationTest(type: Test){
+    group 'Verification'
+    description 'Runs the integration tests.'
+    println sourceSets.integrationTest.output.properties
+    testClassesDirs = sourceSets.integrationTest.output.classesDirs
+    classpath = sourceSets.integrationTest.runtimeClasspath
+}
+
+task functionalTest(type: Test){
+    group 'Verification'
+    description 'Runs the functional tests.'
+    println sourceSets.functionalTest.output.properties
+    testClassesDirs = sourceSets.functionalTest.output.classesDirs
+    classpath = sourceSets.functionalTest.runtimeClasspath
+
+}
+
+check.dependsOn integrationTest
+check.dependsOn functionalTest
+
