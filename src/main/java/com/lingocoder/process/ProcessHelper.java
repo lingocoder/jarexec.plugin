@@ -21,7 +21,10 @@ public class ProcessHelper{
      *
      * @param cmdArray A {@link String} array containing a program to run and its arguments.
      *
-     * @return
+     * @return A composite result containing whatever the requested process may have written to
+     * {@code stdout} and/or {@code stderr}. The result will also hold an exit code of either 
+     * <em>{@code 0}</em> to indicate a successful exit, or <em>{@code 1}</em> to indicate the
+     * process produced and error.
      */
     public ProcessIO runProcess(String[] cmdArray) {
 

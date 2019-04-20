@@ -77,7 +77,7 @@ public class CommandHelper {
      *
      * @param commands The sequence of commands or arguments that the particular selected program would process.
      *
-     * @return „<em>{@code java -jar ${commands}...}</em>“ if the {@code hypen} param is „<em>{@code Optional.of(‚-‘)}<em>“. Otherwise, returns „<em>{@code jar ${commands}}</em>“ if the {@code hypen} param is „{@code Optional.empty()}“ (<em>or anything other than „<em>{@code Optional.of(‚-‘)}</em>“).
+     * @return „<em>{@code java -jar ${commands}...}</em>“ if the {@code hypen} param is „<em>{@code Optional.of(‚-‘)}</em>“. Otherwise, returns „<em>{@code jar ${commands}}</em>“ if the {@code hypen} param is „{@code Optional.empty()}“ (<em>or anything other than „{@code Optional.of(‚-‘)}</em>“).
      */
     public String[] refreshCmds(Optional<String> hyphen, String... commands) {
 
