@@ -22,6 +22,8 @@ gradlePlugin {
             implementationClass = 'com.lingocoder.plugin.jarexec.JarExecPlugin'
         }
     }
+
+    testSourceSets sourceSets.test, sourceSets.functionalTest, sourceSets.integrationTest
 }
 
 repositories{
@@ -41,10 +43,6 @@ dependencies{
     }
     
     testRuntimeOnly group: 'org.raml.jaxrs', name: 'raml-to-jaxrs-cli', classifier: 'jar-with-dependencies', version: '3.0.5'
-}
-
-gradlePlugin{
-  testSourceSets sourceSets.test, sourceSets.functionalTest, sourceSets.integrationTest
 }
 
 publishing {
