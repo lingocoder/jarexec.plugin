@@ -2,6 +2,8 @@ package com.lingocoder.jar;
 
 public class UnexecutableJarException extends RuntimeException {
 
+    private static final long serialVersionUID = -1847253784521396894L;
+
     public UnexecutableJarException() {
         super();
     }
