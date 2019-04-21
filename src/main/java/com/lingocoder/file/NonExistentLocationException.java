@@ -1,10 +1,13 @@
 package com.lingocoder.file;
 
 public class NonExistentLocationException extends RuntimeException {
+    
+    private static final long serialVersionUID = 6261059904035552520L;
+
     /**
-     * Constructs a new runtime exception with {@code null} as its
-     * detail message.  The cause is not initialized, and may subsequently be
-     * initialized by a call to {@link #initCause}.
+     * Constructs a new runtime exception with {@code null} as its detail message.
+     * The cause is not initialized, and may subsequently be initialized by a call
+     * to {@link #initCause}.
      */
     public NonExistentLocationException() {
         super();
