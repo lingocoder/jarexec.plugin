@@ -1,11 +1,5 @@
 package com.lingocoder.common;
 
-import java.io.File;
-import java.net.URI;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Optional;
-
 import static java.io.File.separator;
 import static java.lang.System.getenv;
 

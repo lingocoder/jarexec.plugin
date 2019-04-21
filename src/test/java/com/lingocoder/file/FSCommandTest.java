@@ -12,7 +12,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
 
-import static com.lingocoder.file.FSCommand.resolveToPath;
 import static org.junit.Assert.*;
 
 public class FSCommandTest {
