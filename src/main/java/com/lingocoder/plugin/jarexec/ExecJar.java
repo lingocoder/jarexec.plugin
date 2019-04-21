@@ -12,7 +12,6 @@ import org.gradle.api.tasks.*;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import static org.gradle.api.tasks.PathSensitivity.RELATIVE;
