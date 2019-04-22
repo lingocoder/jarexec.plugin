@@ -33,6 +33,20 @@ public class GradleLocalFileFinder implements CachedArtifactFinder {
 
     private final URI gradle;
 
+    /**
+     * <p>Create an instance with default state. The created instance will attempt
+     * to locate and work with a local Gradle installation's file system dependency
+     * cache it assumes will be installed at a standard default location. It will
+     * look for environment variables such as <em>{@code GRADLE_USER_HOME}</em>
+     * and <em>{@code GRADLE_HOME}</em>.</p>
+     * 
+     * <p>If no such environment is found, it will assume the caller intends for this
+     * instance to work with a Gradle installation located in the home directory of
+     * the current user.</p>
+     * 
+     * <p>The methods of this instance operate in the context of the locations described
+     * above.</p>
+     */
     public GradleLocalFileFinder() {
 
         this.gradle = Paths.get(GradleShared.GRADLE).toUri().resolve("caches");
@@ -72,7 +86,6 @@ public class GradleLocalFileFinder implements CachedArtifactFinder {
         }
         return result;
     }
-
 
     private RepoResult lookInMavenCache(String coordinates) {
 

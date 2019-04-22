@@ -18,6 +18,9 @@ public class JarTool {
     private final CommandHelper cmdHelp;
     private final ProcessHelper procHelp;
 
+    /**
+     * Create an instance with default state.
+     */
     public JarTool() {
 
         this.cmdHelp = new CommandHelper();
@@ -33,7 +36,7 @@ public class JarTool {
      *
      * @return A composite result of the run.
      */
-    ProcessIO run(String... commands) {
+    public ProcessIO run(String...commands) {
 
         String[] cmdArray = this.cmdHelp.refreshCmds(Optional.empty(), commands);
 

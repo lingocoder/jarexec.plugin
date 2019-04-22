@@ -27,11 +27,19 @@ public class JarHelper {
 
     private Project project;
 
+    /**
+     * Create an instance with default state.
+     */
     public JarHelper(){
 
         this.finder = new GradleLocalFileFinder();
     }
 
+    /**
+     * Create an instance that will be used within a task of a Gradle build script.
+     * 
+     * @param project The Gradle {@link Project} within which this instance will be used.
+     */
     public JarHelper(Project project){ this(); this.project = project; }
 
     /**
@@ -39,7 +47,7 @@ public class JarHelper {
      *
      * @param aJar A {@link File} that refers to a {@code jar} file.
      *
-     * @return {@code true} if the {@code aJar} param refers to an executable {@code jar}; Otherwise, {@code false};
+     * @return {@code true} if the {@code aJar} param refers to an executable {@code jar}; Otherwise, {@code false}.
      */
     public boolean checkExecutable(File aJar) {
 
@@ -70,7 +78,7 @@ public class JarHelper {
     }
 
     /**
-     * Produces an executable {@code jar}.
+     * Produce an executable {@code jar}.
      *
      * @param mainClassRootDir The location of the {@code Main-Class} intended to be the entry point of the resulting {@code jar}.
      *
@@ -132,7 +140,7 @@ public class JarHelper {
     }
 
     /**
-     * <p>Attempts to retrieve a previously-resolved jar dependency from the file system cache of a locally-installed
+     * <p>Retrieve a previously-resolved jar dependency from the file system cache of a locally-installed
      * dependency management system. Maven or Gradle, for example.</p>
      *
      * <p>The prerequisite of „<em>previously-resolved</em>“ means this operation's <em>guaranteed</em> success in
@@ -168,5 +176,4 @@ public class JarHelper {
         return aJar;
 
     }
-
 }
