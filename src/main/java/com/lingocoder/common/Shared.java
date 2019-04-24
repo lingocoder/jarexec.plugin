@@ -26,13 +26,13 @@ public class Shared {
 
     public static final String NO_NULLS_ALLOWED = "'%' parameter cannot be '%'.";
 
-    public static <T extends String>  void rejectMissingParam(T paramName, T param) {
+    public static void rejectMissingParam(String paramName, String param) {
         if(param == null || param.isEmpty()){
             throw new IllegalArgumentException(String.format(NO_NULLS_ALLOWED, paramName, param));
         }
     }
 
-    public static <T extends String, U>  void rejectMissingParam(T paramName, U param) {
+    public static <T extends CharSequence, U>  void rejectMissingParam(T paramName, U param) {
         if(param == null){
             throw new IllegalArgumentException(String.format(NO_NULLS_ALLOWED, paramName, param));
         }
