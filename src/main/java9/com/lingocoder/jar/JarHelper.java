@@ -154,8 +154,8 @@ public class JarHelper {
      *         Otherwise, {@link Optional#empty()}.
      */
     public Optional<File> fetch(String coordinates){
-        return this.findInProject(coordinates).isPresent() ? this.findInProject(coordinates) : this.finder.find(coordinates).getFile();
-/*        return this.findInProject(coordinates).or(() -> this.finder.find(coordinates).getFile());*/
+
+        return this.findInProject(coordinates).or(() -> this.finder.find(coordinates).getFile());
     }
 
     private JarCreationResult createResult(Optional<Path> jarPath, Optional<String> outPut, int status){
@@ -171,10 +171,7 @@ public class JarHelper {
 
         Stream<File> rtClasspath = project.getConfigurations().getByName("runtimeClasspath").getResolvedConfiguration().getFiles().parallelStream();
 
-        aJar = rtClasspath.filter(f -> f.getName().endsWith(".jar")).filter(f -> f.getName().contains(gav[1])).filter(f-> f.getName().contains(gav[2])).findFirst();
-        
-        aJar = aJar.isPresent() ? aJar : Optional.empty(); 
-/*        aJar = rtClasspath.filter(f -> f.getName().endsWith(".jar")).filter(f -> f.getName().contains(gav[1])).filter(f-> f.getName().contains(gav[2])).findFirst().or(()-> Optional.empty());*/
+        aJar = rtClasspath.filter(f -> f.getName().endsWith(".jar")).filter(f -> f.getName().contains(gav[1])).filter(f-> f.getName().contains(gav[2])).findFirst().or(()-> Optional.empty());
 
         return aJar;
 

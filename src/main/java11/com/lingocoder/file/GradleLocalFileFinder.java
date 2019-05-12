@@ -64,7 +64,7 @@ public class GradleLocalFileFinder implements CachedArtifactFinder {
 
         RepoResult result = lookInGradleCaches(coordinates);
 
-        return !result.getFile().isPresent() || !result.getFile().get().exists() ? lookInMavenCache(coordinates) : result;
+        return result.getFile().isEmpty() || !result.getFile().get().exists() ? lookInMavenCache(coordinates) : result;
     }
 
     private RepoResult lookInGradleCaches(String coordinates) {
