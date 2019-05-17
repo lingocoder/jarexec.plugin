@@ -67,7 +67,7 @@ public class MavenLocalFileFinder implements CachedArtifactFinder {
 
         String version = artifactHelp.extractVersion(coordinates);
 
-        File nullObj = new File("@d\\e#/v@;n;u<l!l");
+        File nullObj = new File("@d\\e#/v@;n;u.l!l");
 
         return new DefaultRepoResult(artifactHelp.groupArtifactVerToPath(group,artifact,version).map(path -> path.toFile()).orElse(nullObj), artifactHelp.fromMavenLocal(coordinates).orElse(nullObj));
     }

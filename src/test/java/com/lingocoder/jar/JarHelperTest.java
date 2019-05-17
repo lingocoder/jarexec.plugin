@@ -34,7 +34,7 @@ public class JarHelperTest {
 
     private static String unExeCoordinates;
 
-    private File nullObjFile = new File("@d\\e#/v@;n;u<l!l");
+    private File nullObjFile = new File("@d\\e#/v@;n;u.l!l");
 
     private static Path mainClassRootDir;
 
