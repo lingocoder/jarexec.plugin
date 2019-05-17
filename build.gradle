@@ -8,7 +8,7 @@ plugins {
 }
 
 group = 'com.lingocoder'
-version = '0.1'
+version = '0.2'
 
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
@@ -35,7 +35,12 @@ repositories{
 dependencies{
     implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.3.0-alpha4'
     implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.3.0-alpha4'
-        
+    
+    java9Implementation files(sourceSets.main.output.classesDirs) { builtBy compileJava }
+    java9Implementation gradleApi()
+    java11Implementation files(sourceSets.main.output.classesDirs) { builtBy compileJava }
+    java11Implementation gradleApi()
+    
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     testImplementation group: 'org.codehaus.groovy', name: 'groovy', version: '3.0.0-alpha-4'
     testImplementation(group: 'org.spockframework', name: 'spock-core', version: '1.3-groovy-2.5') {
@@ -43,6 +48,33 @@ dependencies{
     }
     
     testRuntimeOnly group: 'org.raml.jaxrs', name: 'raml-to-jaxrs-cli', classifier: 'jar-with-dependencies', version: '3.0.5'
+}
+
+compileJava {
+   sourceCompatibility = 8
+   targetCompatibility = 8
+}
+
+compileJava9Java {
+   sourceCompatibility = 9
+   targetCompatibility = 9
+}
+
+compileJava11Java {
+   sourceCompatibility = 11
+   targetCompatibility = 11
+}
+
+jar {
+   into('META-INF/versions/9') {
+      from sourceSets.java9.output
+   }
+   into('META-INF/versions/11') {
+      from sourceSets.java11.output
+   }
+   manifest.attributes(
+      'Multi-Release': 'true'
+   )
 }
 
 publishing {

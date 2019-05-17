@@ -53,3 +53,4 @@ gradle/wrapper
 **/log4j.properties
 **/logback.xml
 **/test-foo
+*.keep.*

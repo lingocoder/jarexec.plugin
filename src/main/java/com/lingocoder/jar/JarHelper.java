@@ -160,7 +160,7 @@ public class JarHelper {
 
     private JarCreationResult createResult(Optional<Path> jarPath, Optional<String> outPut, int status){
 
-        return new DefaultJarCreationResult(jarPath, outPut, this.checkExecutable(jarPath.orElse(Paths.get("\\\\/dfasaf@-")).toFile()), status);
+        return new DefaultJarCreationResult(jarPath, outPut, this.checkExecutable(jarPath.orElse(Paths.get("@d\\e#/v@;n;u.l!l")).toFile()), status);
     }
 
     private Optional<File> findInProject(String coordinates){

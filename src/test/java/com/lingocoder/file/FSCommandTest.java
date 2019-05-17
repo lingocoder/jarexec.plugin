@@ -22,7 +22,7 @@ public class FSCommandTest {
 
     private static String nameOfMainClass;
 
-    private File nullObjFile = new File("@d\\e#/v@;n;u<l!l");
+    private File nullObjFile = new File("@d\\e#/v@;n;u.l!l");
 
     private static Path mainClassRootDir;
 
