@@ -18,6 +18,18 @@ sourceSets{
         compileClasspath += sourceSets.main.output + configurations.testRuntimeClasspath
         runtimeClasspath += output + compileClasspath
     }
+    
+    java9 {
+      java {
+       srcDirs = ['src/main/java9']
+      }
+   }
+   
+   java11 {
+      java {
+       srcDirs = ['src/main/java11']
+      }
+   }
 
 }
 
