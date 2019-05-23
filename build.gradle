@@ -8,7 +8,7 @@ plugins {
 }
 
 group = 'com.lingocoder'
-version = '0.3'
+version = '0.4.5'
 description = 'A Gradle plugin that executes Java Jar files'
 
 apply from: 'gradle/sourcesets/custom.sourcesets.gradle'
@@ -44,6 +44,9 @@ dependencies{
 
     java9Implementation gradleApi()
     java11Implementation gradleApi()
+
+    java9Implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.5'
+    java11Implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.5'
 
     implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.5'
     implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.3.0-alpha4'
