@@ -8,7 +8,7 @@ plugins {
 }
 
 group = 'com.lingocoder'
-version = '0.4.5'
+version = '0.4.6'
 description = 'A Gradle plugin that executes Java Jar files'
 
 apply from: 'gradle/sourcesets/custom.sourcesets.gradle'
