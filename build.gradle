@@ -5,10 +5,12 @@ plugins {
     id 'idea'
     id "org.jetbrains.gradle.plugin.idea-ext" version "0.5"
     id 'com.gradle.build-scan' version '2.3'
+    id 'com.github.hierynomus.license-base' version '0.15.0'
+
 }
 
 group = 'com.lingocoder'
-version = '0.4.6'
+version = '0.4.7'
 description = 'A Gradle plugin that executes Java Jar files'
 
 apply from: 'gradle/sourcesets/custom.sourcesets.gradle'
@@ -118,8 +120,19 @@ idea.project.settings {
     }
 }
 
+license { header = file('src/main/resources/META-INF/LICENSE-HEADER.txt') }
+
+license {
+    excludes(["**/*.txt", "**/*keep*.*", "**/*.gradle*", "**/*.*ignore", "**/*.properties"])
+
+    ext.year = Calendar.getInstance().get(Calendar.YEAR)
+    ext.name = 'lingocoder'
+    ext.email = 'plugins@lingocoder.com'
+
+    skipExistingHeaders = true
+}
+
 buildScan {
     termsOfServiceUrl = 'https://gradle.com/terms-of-service'
     termsOfServiceAgree = 'yes'
 }
-
