@@ -45,10 +45,10 @@ dependencies{
     java9Implementation gradleApi()
     java11Implementation gradleApi()
 
-    java9Implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.6'
-    java11Implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.6'
+    java9Implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.7'
+    java11Implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.7'
 
-    implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.6'
+    implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.7'
     implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.3.0-alpha4'
     implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.3.0-alpha4'
 

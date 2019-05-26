@@ -1,7 +1,5 @@
 package com.lingocoder.plugin.jarexec;
 
-import com.lingocoder.process.io.ProcessIO;
-import com.lingocoder.jar.JarTool;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.file.FileCollection;
 import org.gradle.api.file.FileTree;
@@ -11,7 +9,6 @@ import org.gradle.api.provider.Provider;
 import org.gradle.api.tasks.*;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.gradle.api.tasks.PathSensitivity.RELATIVE;
@@ -36,6 +33,8 @@ public class ExecJar extends DefaultTask {
 
     private final Property<File> watchOutDir;
 
+    private final Execution exe;
+
     public ExecJar() {
 
         this.args = getProject().getObjects().listProperty(String.class);
@@ -44,7 +43,8 @@ public class ExecJar extends DefaultTask {
         this.mainClass = getProject().getObjects().property(String.class);
         this.watchInFile = getProject().getObjects().property(File.class);
         this.watchInFiles = getProject().getObjects().property(FileTree.class);
-        this.watchOutDir = getProject().getObjects().property(File.class);
+        this.watchOutDir = getProject( ).getObjects( ).property( File.class );
+        this.exe = new Execution( );
     }
 
     @Input
@@ -117,11 +117,6 @@ public class ExecJar extends DefaultTask {
     @TaskAction
     void executeJar() {
 
-        List<String> argsList = new ArrayList<>(this.getArgs().size() + 1); argsList.add(0,this.getJar().getAbsolutePath()); argsList.addAll(this.getArgs());
-
-        ProcessIO io = new JarTool().execute(argsList.toArray(new String[argsList.size()]));
-
-        System.out.printf("%s%n", io);
+        this.exe.execute( this.jar, this.classpath, this.args, this.mainClass );
     }
-
 }

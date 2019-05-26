@@ -128,7 +128,7 @@ public class JarHelper {
 
         JarTool jar = new JarTool();
 
-        ProcessIO jarIO = jar.run(cmdArray);
+        ProcessIO jarIO = jar.jar(cmdArray);
 
         if( jarIO.isOk() ){
 

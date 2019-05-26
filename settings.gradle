@@ -2,7 +2,8 @@ pluginManagement {
   repositories {
     maven {
       url = uri("../consuming/maven-repo/")
-    }      
+    }
+    mavenLocal()
     gradlePluginPortal()
   } // end repositories    
 }

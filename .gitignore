@@ -54,3 +54,4 @@ gradle/wrapper
 **/logback.xml
 **/test-foo
 *.keep.*
+*.ser
