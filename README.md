@@ -18,7 +18,7 @@ You can read the [*JavaDoc here*](https://lingocoder.github.io/docs/javadoc/inde
 
     /* (1) Apply the jarexec plugin using the plugins DSL. */
     plugins{
-        id 'com.lingocoder.jarexec' version '0.4.7'
+        id 'com.lingocoder.jarexec' version '0.4.8'
     }
 		
     /* (2) Configure repositories. jcenter is preferred by Gradle.org. */
@@ -76,7 +76,6 @@ The steps are pretty much the same as above. But in this case you need to add th
         args = [
             "-a", "L:\\ingocoder\\input\\files\\abi.gav.coordinates.1.txt",
             "-c", "L:\\ingocoder\\classes\\", 
-            "-d", "L:\\ingocoder\\input\\files\\abi.dependencies.paths.1.txt",
             "-p", "com.lingocoder.poc"]
 
         /* (ii) The class path the main class needs. This is configurable by adding what your main
@@ -86,7 +85,7 @@ The steps are pretty much the same as above. But in this case you need to add th
 
         /* (iii) Configure jarexec's 'jar' property with your executable jar. */
 
-        jar = jarhelper.fetch('com.lingocoder:abi.cli:0.4.7').orElse('build/libs/abi.cli-0.4.7.jar')
+        jar = jarhelper.fetch('com.lingocoder:abi.cli:0.4.8').orElse('build/libs/abi.cli-0.4.8.jar')
 
         /* (iv) Configure jarexec's 'watchInFile' property with your input file. */
 
