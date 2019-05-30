@@ -10,7 +10,7 @@ plugins {
 }
 
 group = 'com.lingocoder'
-version = '0.4.8'
+version = '0.4.9'
 description = 'A Gradle plugin that executes Java Jar files'
 
 apply from: 'gradle/sourcesets/custom.sourcesets.gradle'
@@ -47,10 +47,10 @@ dependencies{
     java9Implementation gradleApi()
     java11Implementation gradleApi()
 
-    java9Implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.8'
-    java11Implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.8'
+    java9Implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.9'
+    java11Implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.9'
 
-    implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.8'
+    implementation group: 'com.lingocoder', name: 'lingocoder.core', version: '0.4.9'
     implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.3.0-alpha4'
 
     testImplementation group: 'junit', name: 'junit', version: '4.12'
@@ -77,6 +77,8 @@ compileJava11Java {
    targetCompatibility = 11
 }
 
+ext.moduleName = 'com.lingocoder.jarexec'
+
 jar {
    into('META-INF/versions/9') {
       from sourceSets.java9.output
@@ -84,8 +86,10 @@ jar {
    into('META-INF/versions/11') {
       from sourceSets.java11.output
    }
+   inputs.property("moduleName", moduleName)
    manifest.attributes(
-      'Multi-Release': 'true'
+      'Multi-Release': 'true',
+      'Automatic-Module-Name': moduleName
    )
 }
 
